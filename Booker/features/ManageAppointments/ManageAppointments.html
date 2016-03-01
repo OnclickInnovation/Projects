@@ -1,0 +1,49 @@
+<div class='content'>
+<div class="container heading-style-5">
+                    <h4 style="font-size: 24px;" class="heading-title"><strong>Recent Bookings</strong></h4>
+    <i class="fa fa-check-square-o heading-icon"></i>
+    <div class="line bg-black"></div>
+</div>
+<div class="listitems">
+	<ul ng-if='appointments.length != 0'>
+		<li ng-repeat='appointment in appointments' ng-click='openModal(appointment)'>
+			<table>
+				<tr>
+					<td>
+						<b>Status</b>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h2><i ng-if='!appointment.IsCancelled' class='fa fa-check-circle-o text-success'></i>
+						<i ng-if='appointment.IsCancelled' class='fa fa-times-circle-o text-danger'></i></h2>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>Treatments</b>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span ng-repeat='app in appointment.AppointmentTreatments'>{{app.Treatment.Name}}<span ng-if='!$last'>,</span> </span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>Amount</b>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						{{appointment.FinalTotal.Amount | currency}} - ({{appointment.FinalTotal.CurrencyCode}})
+					</td>
+				</tr>
+			</table>
+		</li>
+	</ul>
+	<div ng-if='appointments.length == 0' class='alert alert-danger'> 
+		No Appointments Found.
+	</div>	
+</div>
+</div>

@@ -1,0 +1,64 @@
+<div id="monitor">
+
+    <!-- Nav tabs -->
+    <!-- Top nav starts  -->
+    <nav class="navbar synsormed-navs navbar-inverse" role="tabs">
+        <div class="container">
+            <!-- Nav brand start -->
+            <div class="navbar-header col-md-2">
+                <a class="navbar-brand" ><strong>Monitor</strong></a>
+        </div>
+        <!-- Nav brand ends-->
+
+        <!-- Nav menu start-->
+        <ul id="collspse-settings-target" role="tablist" class="nav navbar-nav collapse navbar-collapse col-md-10">
+            <li role="presentation" ng-if="user.role == 'Admin' || user.role == 'Provider'" ng-click="editMonitor()"><a>New Monitor</a></li>
+            <li class="active" role="presentation" ng-if="user.role == 'Admin' || user.role == 'Provider'"><a href="#worklist" aria-controls="worklist" role="tab" data-toggle="tab">List</a></li>
+        </ul>
+        <!-- Nav menu ends -->
+
+    </div>
+</nav>
+
+<div id='ehrMonitor'>
+    <div class="panel panel-default mar-top-20">
+        <div class="modal-body" style="position: relative" wait="waiting">
+            <div class="text-center">
+              <h3 ng-if="!isNew">Link Monitor {{monitor.patientCode}}</h3>
+              <h3 ng-if="isNew">New Monitor</h3>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form role="form" name="form">
+                        <div class="form-group" validate>
+                            <input required placeholder="Monitoring Details" name="description" ng-model="data.description" class="form-control" type="text">
+                        </div>
+                        <div class="form-group" validate>
+                            <input ng-model='data.notify' type='checkbox' />
+                            Send Care Alerts <help help-text="Get notified via email on any out of range or missed readings."/>
+                        </div>
+
+                        <div class="form-group" ng-if="data.notify" validate>
+                            <h5>Sensitivity <help help-text="No. of consecutive missed or out of range readings before notifying"/></h5>
+                            <div range-slider min="1" max="6" model-max="data.sensitivity" pin-handle="min"></div>
+                        </div>
+                        <div class="form-group">
+                            <h5 class="pull-left">Measurements <help help-text="Choose which health indicators you want to monitor"/></h5>
+                            <button type="button" class="pull-right btn btn-secondary btn-sm" ng-click="addIndicator()"><i class="fa fa-plus"></i></button>
+                            <div class="clear"></div>
+                        </div>
+                        <indicator-list monitor-id='monitor.id' measurements='measurements' monitor-measurements='monitorMeasurements'></indicator-list>
+                    </form>
+                    <small ng-if='!isNew'>(Next Reading date will reset if you update the indicator)</small><br />
+                    <small ng-if="monitorMeasurements.length">(* Indicator not saved yet)</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" ng-click="ok()">{{getStateText()}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Tab panes end -->
+</div>

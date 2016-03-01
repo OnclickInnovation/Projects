@@ -1,0 +1,46 @@
+<div ng-cloak class="content">
+                <!-- <div class="header-clear-large"></div> -->
+                <!--Page content goes here, fixed elements go above the all elements class-->
+
+                <div class="container heading-style-5">
+                    <h4 style="font-size: 24px;" class="heading-title"><strong>Enter Payment Details</strong></h4>
+                    <i class='heading-icon'><img style="width: 50px;height: 40px;margin-left: 6px;" src="images/payment.png"></i>
+                    <div class="line bg-black"></div>
+                </div>
+                <div class="listitems">
+                    <div class="text-center">
+                        <label ng-hide='!disabled'>
+                            <h4>Amount</h4>
+                        </label>
+                        <input class='form-control' ng-hide='!disabled' ng-model='payment.amount' ng-disabled='disabled' type='number' />
+                        <label>
+                            <h4>Security Code</h4>
+                        </label>
+                        <input class='form-control' type='number' ng-model='payment.securityCode'  required/>
+                        <label>
+                         <h4>Card Type</h4>
+                        </label>
+                        <select class='form-control' ng-model='cardSelected.ID' ng-options="card.ID as card.Name for card in cardTypes"></select>
+                        <label>
+                            <h4>Card Number</h4>
+                        </label>
+                        <input type="text" class='form-control' ng-model='payment.cardNumber' name='cardNumber' required/>
+                        <label>
+                            <h4>Name On Card</h4>
+                        </label>
+                        <input class='form-control' type='text' ng-model='payment.cardName' placeholder='' required/>
+                        <label>
+                            <h4>Billing zip</h4>
+                        </label>
+                        <input class='form-control' type='text' placeholder='' ng-model='payment.billingZip' required/>
+                        <label>
+                            <h4>Expiration Date</h4>
+                        </label>
+                         <uib-datepicker ng-model="payment.expirationDate" min-mode="month" datepicker-mode="'month'"></uib-datepicker>
+                        <button ng-if='!giftButton' style='margin-top:20px;' ng-click='submitPaymentDetails()' class="login-button button button-small button-green button-fullscreen full-bottom">Book Appointment</button>
+                        <button ng-if='giftButton' style='margin-top:20px;' ng-click='sendEGiftCard()' class="login-button button button-small button-green button-fullscreen full-bottom">Send Gift</button>
+                        <button style="font-size: 20px;color: #FFFFFF;border-radius: 0px;" ng-click='CancelBooking()' class="login-button button button-small btn btn-danger button-fullscreen full-bottom">Cancel</button>                    
+                        </div>
+                </div>
+            <!-- End of entire page content-->
+            </div>

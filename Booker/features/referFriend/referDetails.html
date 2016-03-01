@@ -1,0 +1,32 @@
+<div class='content'>
+    <div class="container heading-style-5">
+        <h4 style="font-size: 24px;" class="heading-title"><strong>Invite Friend</strong></h4>
+        <i class='fa fa-user heading-icon'></i>
+        <div class="line bg-black"></div>
+    </div>
+    <div>
+        <div ng-if='email'>
+        	<div class="listitems">
+                    <div class="text-center">
+                        <label>
+                            <h4>Email To</h4>
+                        </label>
+                        <input class="form-control" type='email'  ng-modal='emailRec'/>
+                        <br>
+                        <br>
+                        <button style="font-size: 20px;color: #FFFFFF;border-radius: 0px;" ng-click='sendEmail()' class="login-button button button-small btn btn-success button-fullscreen full-bottom">Send Referral Email</button>
+                        <button style="font-size: 20px;color: #FFFFFF;border-radius: 0px;" ng-click='cancel()' class="login-button button button-small btn btn-danger button-fullscreen full-bottom">Cancel</button>
+                     </div>
+                </div>
+	    </div>
+        <div ng-if='!email'>
+        		<div class="listitems">
+                    <div class="text-center">
+                        <label>
+                            <h4>Sorry I M WORKING ON THIS</h4>
+                        </label>
+                        </div>
+                </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div id="generateCode" class="modal-body" wait="waiting">
+    <div class="text-center">
+      <h3>Send to email</h3>
+    </div>
+    <div class="panel panel-default">
+          <div class="panel-body">
+              <form role="form" name="form">
+                <div class="form-group" validate>
+                  <label for="email">Email</label>
+                  <input required placeholder="Email" name="emailTo" class="form-control" type="email" ng-model="email.data">
+                </div>
+                <small>(Enter you email to recieve code details and instruction into your mailbox)</small>
+              </form>
+          </div>
+      </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">Send</button>
+    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,38 @@
+<div id='healthindicator'>
+    <div class="form-group">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="text-center">
+                    <div class="pull-left"><b>Status</b></div>
+                    <div class="pull-right">
+                        <span ng-if="!(isMissed || isOutofBound)" class="fa fa-lg fa-check-circle text-success status-btn" title="Reading is up to date and in range"></span>
+                        <span ng-if="isMissed" class="fa fa-lg fa-calendar-times-o text-warning status-btn" title="Patient missed scheduled reading"></span>
+                        <span ng-if="isOutofBound" class="fa fa-lg fa fa-heartbeat text-danger status-btn" title="Latest reading is out of range"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="oauthAvailable" class="panel panel-default">
+            <div class="panel-body">
+                <div class="text-center">
+                    <div class='pull-left'><b>Service</b></div>
+                    <div class='pull-right'>
+                        <span class='pull-left'>{{serviceName}}</span>
+                        <span class="text-success fa-lg fa fa-check-circle pull-right mar-top-2"></span>
+                        <div class='clear'></div></div>
+                    <div class='clear'></div>
+                </div>
+            </div>
+        </div>
+        <h5>Health Indicator</h5>
+        <div class="row">
+          <div class="col-xs-6" validate>
+            <select name="measurementId" required class="form-control btn-secondary" ng-selected='measurementId' ng-model="measurementId" ng-options="measurement.id as measurement.name for measurement in measurements"></select>
+          </div>
+          <div class="col-xs-6" validate>
+            <select name="repeatInterval" required class="form-control btn-secondary" ng-model="repeatIntervalInHours" ng-options="interval.id as interval.name for interval in monitoringIntervals"></select>
+          </div>
+        </div>
+    </div>
+    <safe-reading measurement='getCurrent(measurementId)' upperbound="upperbound" lowerbound="lowerbound"></safe-reading>
+</div>

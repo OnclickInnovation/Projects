@@ -1,0 +1,125 @@
+<div id="settings">
+
+  <!-- Nav tabs -->
+  <!-- Top nav starts  -->
+  <nav class="navbar synsormed-navs navbar-inverse" role="tabs">
+    <div class="container">
+      <!-- Nav brand start -->
+      <div class="navbar-header col-md-2">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+        data-target="#collspse-settings-target">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ><strong>Settings</strong></a>
+    </div>
+    <!-- Nav brand ends-->
+
+    <!-- Nav menu start-->
+    <ul id="collspse-settings-target" role="tablist" class="nav navbar-nav collapse navbar-collapse col-md-10">
+      <li role="presentation" class="active"><a href="#settingaccount" aria-controls="home" role="tab" data-toggle="tab">Your Account</a></li>
+    </ul>
+    <!-- Nav menu ends -->
+
+  </div>
+</nav>
+
+<!-- Tab panes -->
+<div class="tab-content">
+
+  <div role="tabpanel" class="tab-pane active" id="settingaccount" ng-controller="SettingsAccountController">
+    <div class="header">
+      <div class="container">
+        <div class="col-md-12"><h3 class="form-group">Your Account</h3></div>
+      </div>
+    </div>
+    <form class="container" name="form">
+      <div class="container">
+        <div class="row">
+          <div class='col-md-6 col-xs-12'>
+            <div class="form-group" validate>
+              <label>Email</label>
+              <input name="email" type="email" required class="form-control" ng-model="user.email" ng-disabled="user.role != 'Admin'">
+              <small ng-if="user.role != 'Admin'">Contact your administrator to change your email</small>
+            </div>
+            <div class="form-group" validate>
+                  <label>Notification Emails</label>
+                  <help help-text="Add emails to send health alerts to. Maximum 3 emails are allowed."/>
+                  <input ng-model="user.reportingEmails" tags-input type='text' name='more_emails' class="form-control" />
+            </div>
+          </div>
+          <div class='col-md-6 col-xs-12'>
+          </div>
+        </div>
+        <div class="row">
+          <div class='col-md-6 col-xs-12'>
+            <h4>Change password</h4>
+            <div class="form-group" validate>
+              <label>Password</label>
+              <input type="password" name="password" class="form-control" ng-model="user.password">
+            </div>
+            <div class="form-group" validate>
+              <label>Confirm Password</label>
+              <input type="password" name="confirmPassword" class="form-control" ng-model="user.confirmPassword">
+            </div>
+          </div>
+          <!-- <div class='col-md-6 col-xs-12'>
+            <h4>Contact details</h4>
+            <div class="form-group" validate>
+              <label>Contact Number</label>
+              <input required type="text" maxlength="10" minlength="10" name="phone_mobile" class="form-control" ng-model="user.phone_mobile" />
+            </div>
+            <div class="form-group" validate>
+              <label>Service Provider</label>
+              <select required name='network_id' class="form-control" ng-model='user.network_id'>
+                <option value='{{val.id}}' ng-selected = 'val.id == user.network_id' ng-repeat='val in providers'>{{val.name}}</option>
+              </select>
+            </div>
+          </div> -->
+        </div>
+        <div class="row">
+          <div class='col-md-1'>
+            <button class="btn btn-primary btn-sm" ng-click="save(form)"><strong>SAVE</strong></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div role="tabpanel" class="tab-pane " id="users" ng-controller="SettingsUsersController">
+    <div class="header">
+      <div class="container">
+        <div class="col-xs-8 col-sm-10"><h3>Users</h3></div>
+        <div class="col-xs-4 col-sm-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-sm" ng-click="addUser()"><strong>ADD A USER</strong></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="synsormed-list-table">
+      <div class="list-head-row">
+        <div class="container">
+          <div class="col-sm-3 col-xs-4"><strong>Name</strong></div>
+          <div class="col-sm-3 hidden-xs"><strong>Email</strong></div>
+          <div class="col-sm-3 col-xs-4 text-center"><strong>Role</strong></div>
+          <div class="col-sm-3 col-xs-4 text-center"><strong>Actions</strong></div>
+        </div>
+      </div>
+      <div class="list-head-row hover-grid" ng-repeat="practiceUser in users">
+        <div class="container">
+          <div class="col-sm-3 col-xs-4">{{practiceUser.name}}</div>
+          <div class="col-sm-3 hidden-xs">{{practiceUser.email}}</div>
+          <div class="col-sm-3 col-xs-4 text-center">{{practiceUser.role}}</div>
+          <div class="col-sm-3 col-xs-4 text-center">
+            <button class="btn btn-secondary" ng-click="editUser(practiceUser)"><i class="fa fa-edit"></i></button>
+            <button class="btn btn-secondary" ng-if="practiceUser.id != user.id" ng-click="deleteUser(practiceUser)"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

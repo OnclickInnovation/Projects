@@ -1,0 +1,179 @@
+#dashboard
+{
+    .fl{
+        float: left
+    }
+
+    .fr{
+        float:right;
+    }
+    .monitor-details{
+        margin-top: 3px;
+        height: auto;
+        min-height: 268px;
+        color:#fff;
+        background: #00ABA2;
+        border-radius:0px;
+        box-shadow: 4px 4px 4px #eee;
+        padding: 0px 0px 0px 0px;
+    }
+    .indicator-block{
+        height: auto;
+        width: 82%;
+        min-height: 268px;
+        color:#fff;
+        background: #00ABA2;
+        border-radius:0px;
+        padding: 0px 15px 0px 15px;
+        .recent-reports-monitor{
+            border: 1px solid #000;
+            float: left;
+        }
+        @media only screen and (max-device-width: 667px) {
+                width: 100%;
+                padding:0px 10px 0px 10px;
+                margin: 3px 0px 3px 0px;
+                min-height: 0px;
+        }
+    }
+    .graph-reports{
+        height: auto;
+        min-height: 268px;
+        color:#000;
+        border: 1px solid rgba(0, 171, 162, 0.52);
+        border-radius: 5px;
+        box-shadow: 0.5px 0.5px 0.5px #00ABA2;
+        padding: 0px 15px 0px 15px;
+        .recent-reports-monitor{
+            border: 1px solid #000;
+            float: left;
+        }
+        @media only screen and (max-device-width: 667px) {
+                width: 100%;
+                padding:0px 10px 0px 10px;
+                margin: 3px 0px 3px 0px;
+                min-height: 0px;
+        }
+    }
+    .alert-pos{
+        position: relative;
+        top: 20px;
+    }
+    .arrNotifiication{
+        position:relative;
+        top:55px;
+        @media only screen and (max-device-width: 667px) {
+            position:relative;
+            top:30px;
+        }
+    }
+    .recent-reports{
+        margin-top: 3px;
+        margin-right: 2px;
+        height: auto;
+        width: 82%;
+        min-height: 268px;
+        color:#000;
+        //background: #00ABA2;
+        border-radius:0px;
+        padding: 0px 15px 0px 15px;
+        .recent-reports-monitor{
+            border: 1px solid #000;
+            float: left;
+        }
+        @media only screen and (max-device-width: 667px) {
+                width: 100%;
+                padding:0px 10px 0px 10px;
+                margin: 3px 0px 3px 0px;
+                min-height: 0px;
+        }
+    }
+    .padd-0{
+        padding:0px 0px 0px 0px;
+    }
+    .orange{
+        color: #F05F3A;
+    }
+    .mar-0{
+        margin: 4px;
+    }
+    .sidebar-pos{
+        margin: 0px 0px 0px 0px;
+        @media only screen and (max-device-width: 667px) {
+            position: relative;
+            left: 25%;
+        }
+    }
+    .sidebar-services{
+        width:98.5%;
+        color:#fff;
+        margin-top: 3px;
+        background: #00ABA2;
+        padding: 10px 0px 10px 0px;
+        .monitor-list{
+            list-style-type: none;
+            padding:0px;
+        }
+        @media only screen and (max-device-width: 667px) {
+                margin: 0px 0px 0px 0px;
+                padding:0px 0px 0px 0px;
+        }
+    }
+    .service-list{
+        color:#fff;
+        height:auto;
+        margin-right:3px;
+        background: #00ABA2;
+        border-radius:0px;
+        padding:15px 15px 15px 15px;
+        @media only screen and (max-device-width: 667px) {
+                margin: 3px 0px 0px 0px;
+                padding:0px 0px 0px 0px;
+        }
+    }
+    .margin-lf-20{
+        margin-left: 20px;
+    }
+    .margin-lf-15{
+        margin-left: 15px;
+    }
+    .margin-rg-5{
+        margin-right: 5px;
+    }
+    .margin-rg-15{
+        margin-right: 15px;
+    }
+    .dashboard-container{
+
+        padding:15px 0px 10px 20px;
+        @media only screen and (max-device-width: 667px) {
+                padding:0px 0px 0px 0px;
+                margin: 10px 0px 10px 0px;
+        }
+    }
+    .dashboard-sidebar{
+        color:#fff;
+        height: auto;
+        margin-right:3px;
+        background: #00ABA2;
+        padding: 9px 15px 9px 15px;
+        box-shadow: 4px 4px 4px #eee;
+
+    }
+    .indicator-list{
+        color:#fff;
+        height:auto;
+        margin-right:3px;
+        background: #00ABA2;
+        padding:15px 15px 15px 15px;
+        @media only screen and (max-device-width: 667px) {
+                padding:0px 0px 0px 0px;
+                margin: 0px 0px 3px 0px;
+        }
+        @media only screen and (max-device-width: 1024px) {
+                padding:15px 15px 15px 15px;
+                margin: 0px 3px 0px 0px;
+        }
+    }
+
+}

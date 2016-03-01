@@ -1,0 +1,120 @@
+<div id='dashboard'>
+    <nav class="navbar synsormed-navs navbar-inverse" role="tabs">
+        <div class="container">
+            <!-- Nav brand start -->
+            <div class="navbar-header col-md-2">
+                <a class="navbar-brand" ><strong>Dashboard</strong></a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+    <div ng-if="!alert.msg">
+        <div class='text-center dashboard-container'>
+            <div class='col-md-2 col-sm-3 col-xs-6 text-center fl padd-0 sidebar-pos'>
+                <div class="dashboard-sidebar">
+                    <div>
+                        <img title="Monitor" src="/images/monitors.png" height="75">
+                    </div>
+                    <div>
+                        <h3>{{monitor.patientCode}}</h3>
+                    </div>
+                </div>
+                <div ng-if='monitor.measurementName.length' class='col-md-12 hidden-xs col-xs-4 text-center fl sidebar-services'>
+                    <div>
+                        <h4 title="Connected Services" class="mar-0"><b>Indicators</b></h4>
+                        <ul class='hidden-xs monitor-list'>
+                            <li ng-repeat='name in monitor.measurementName'><h4>{{name}}</h4></li>
+                        </ul>
+                        <ul class='hidden-sm hidden-md hidden-lg monitor-list'>
+                            <li ng-repeat='name in monitor.measurementName'><h4>{{name}}</h4></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div ng-if='showReports' class='col-md-12 col-xs-12 recent-reports'>
+                    <div>
+                        <div class='text-center'>
+                            <h3>Recent Reports</h3>
+                        </div>
+                    </div>
+                    <div class='reports-table'>
+                        <table class='table table-striped'>
+                            <tbody>
+                                <tr>
+                                    <td><b> Code </b></td>
+                                    <td ><b> Indicator </b></td>
+                                    <td><b> Status </b></td>
+                                    <td><b> Last updated </b></td>
+                                    <td class='hidden-xs'><b> Latest reading </b></td>
+                                </tr>
+                                <tr ng-if='!monitorMeasurement.length'>
+                                    <td colspan="5"><p class='alert alert-info'>No Recent Reports</p></td>
+                                </tr>
+                                <tr ng-if='monitorMeasurement.length' ng-repeat='measurement in monitorMeasurement'>
+                                    <td>{{monitor.patientCode}}</td>
+                                    <td>{{getIndicatorName(measurement.measurementId)}}</td>
+                                    <td>
+                                    <span ng-if="!(measurement.isMissed || measurement.isOutOfBound)" class="fa fa-lg fa-check-circle text-success" title="Reading is up to date and in range"></span>
+                                    <span ng-if="measurement.isMissed" class="fa fa-lg fa-calendar-times-o text-warning" title="Patient missed scheduled reading"></span>
+                                    <span ng-if="measurement.isOutOfBound" class="fa fa-lg fa fa-heartbeat text-danger" title="Latest reading is out of range"></span>
+                                    </td>
+                                    <td>{{measurement.updated_at | date: 'MMM d,yyyy H:m:ss'}}</td>
+                                    <td ng-if='measurement.latest_reading' class='hidden-xs'> {{measurement.latest_reading}} </td>
+                                    <td ng-if='!measurement.latest_reading' class='hidden-xs'> No Readings </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+            <!-- <div ng-if='showReports' class='col-md-3 col-xs-12 indicator-block'>
+                <div>
+                    <div class='text-center'>
+                        <h3>Indicator Details</h3>
+                    </div>
+                </div>
+                <div class='graph-table'>
+                    <div class="panel-body">
+                    <div class='hidden-xs col-sm-7 col-md-12 col-xs-6 text-center indicator-list'>
+                        <div class='col-md-2 fl' ng-repeat='name in monitor.measurementName'>
+                            <div>
+                                <img ng-if='name == "Sleep"' title='Sleeps' src="/images/sleep.png" height="80">
+                                <img ng-if='name == "Glucose"' title='Glucose' src="/images/glucose.png" height="80">
+                                <img ng-if='name == "Blood Pressure"' title='Blood Pressure' src="/images/bp.png" height="80">
+                                <img ng-if='name == "Steps"' title='Steps' src="/images/steps.png" height="80">
+                                <img ng-if='name == "Weight"' title='Weight' src="/images/weight.png" height="80">
+                            </div>
+                            <div>
+                                <h4 title="Value">{{name}}<h4>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                </div>
+            </div> -->
+            <div ng-if='showReports' class='col-md-12 col-xs-12 graph-reports'>
+                <div>
+                    <div class='text-center'>
+                        <h3>Graphs</h3>
+                    </div>
+                </div>
+                <div ng-if='!monitorMeasurement.length'><p class='alert alert-danger'>No Indicator's available</p></div>
+                <div ng-if='monitorMeasurement.length' class='graph-table'>
+                    <div class="panel-body">
+                        <div class='mar-bot-15'>
+                            <aura-dropdown selected="selected.id" items="monitorMeasurement" key="id" item="name"></aura-dropdown>
+                        </div>
+                        <alert ng-if="notification" class='arrNotifiication' type="danger">{{notification}}</alert>
+                        <highchart ng-hide='notification' id="monitorInsightsModal" class="center-block default-modal-width text-center" config="chartConfig"></highchart>
+                    </div>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+        </div>
+        <div ng-if='alert.msg'>
+            <p ng-if='alert.type == "success"' class='alert alert-info text-center alert-pos'><a ng-if='showLink' href='/#/monitor'>Create Monitor</a>{{alert.msg}}</p>
+            <p ng-if='alert.type == "danger"' class='alert alert-danger text-center alert-pos'>{{alert.msg}}</p>
+        </div>
+    </div>
+</div>

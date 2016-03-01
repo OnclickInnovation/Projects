@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <h3 class="modal-title">
+        <span ng-if="user.id">Edit User</span>
+        <span ng-if="!user.id">Add User</span>
+    </h3>
+</div>
+<div class="modal-body" style="position: relative" wait="waiting">
+    <alert ng-if="notification" type="danger">{{notification}}</alert>
+    <form name="form">
+        <div class="form-group" validate>
+            <input name="name" placeholder="First Name" type="text" required class="form-control" ng-model="user.first_name">
+        </div>
+        <div class="form-group" validate>
+            <input name="name" placeholder="Middle Name" type="text" class="form-control" ng-model="user.middle_name">
+        </div>
+        <div class="form-group" validate>
+            <input name="name" placeholder="Last Name" type="text" required class="form-control" ng-model="user.last_name">
+        </div>
+        <div class="form-group" validate>
+            <input name="name" placeholder="Title" type="text" class="form-control" ng-model="user.title">
+        </div>
+        <div class="form-group" validate>
+            <input name="email" placeholder="Email" type="email" required class="form-control" ng-model="user.email">
+        </div>
+        <div class="form-group" validate>
+            <input name="name" placeholder="Mobile Phone" type="tel" class="form-control" ng-model="user.phone_mobile">
+        </div>
+        <div class="form-group" validate>
+            <input name="name" placeholder="Work Phone" type="tel" class="form-control" ng-model="user.phone_work">
+        </div>
+
+        <div class="form-group" validate>
+            <input placeholder="Password" ng-disabled="currentUser.id == user.id" name="password" type="password" ng-required="!user.id" class="form-control" ng-model="user.password">
+            <small ng-if="currentUser.id == user.id">Please use the form under 'Your account' to change your password.</small>
+        </div>
+
+        <div class="form-group" validate>
+            <select placeholder="Role" ng-disabled="currentUser.id == user.id" name="role" required class="form-control" ng-model="user.role" ng-options="role.value as role.name for role in roles">
+                <option value="">Select Role</option>
+            </select>
+            <small ng-if="currentUser.id == user.id">You cannot change your own role. Another administrator account must be used for that.</small>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>
+</script>

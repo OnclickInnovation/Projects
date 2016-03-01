@@ -1,0 +1,38 @@
+<style>
+textarea{
+	min-height: 150px !important;
+    border: 1px solid rgb(221, 221, 221);
+    min-width: 250px;
+}
+</style>
+<div class='content'>
+<div class="container heading-style-5">
+                    <h4 style="font-size: 24px;" class="heading-title"><strong>Enter Gift Details</strong></h4>
+                <i class="fa fa-check-square-o heading-icon"></i>
+                    <div class="line bg-black"></div>
+</div>
+<div class="listitems">
+ 			<div class="page-login full-bottom">
+                <div class="login-mail">
+                    <i class="fa fa-user"></i>
+                    <input ng-model='giftTo' type="text" placeholder='To' required>
+                </div>
+ 				<div class="login-mail">
+                    <i class="fa fa-gift"></i>
+                    <input ng-disabled="true" ng-model='gift.name' type="text" placeholder='{{details.Name}}'>
+                </div>
+                <div class="login-mail">
+                    <i class="fa fa-money" ></i>
+                    <input ng-model='giftAmount' type="number" min='100' pattern="\d*" required>
+                </div>
+                
+                <div class="login-mail">
+                   <textarea ng-model='giftMessage' type="text" placeholder='Message here..........' required></textarea>
+                </div>
+                <br>
+                <div class='Payment_button text-center'>
+                	<input type='submit' ng-click='createCertificate()' class="button button-small button-green button-fullscreen full-bottom" value='Make Payment'>
+               	</div>
+            </div>	
+</div>
+</div>

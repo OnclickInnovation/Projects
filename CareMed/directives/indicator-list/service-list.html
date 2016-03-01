@@ -1,0 +1,24 @@
+<div id="monitor-service-list" class="modal-body" style="position: relative;" wait="waiting">
+    <div class="text-center">
+        <h3>Available Services</h3>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body panel-fix">
+            <div class="center">
+                <ul ng-if="services" class="list-group">
+                    <li ng-click="startOauth(service)" ng-repeat="service in services" class="pointer list-group-item" >
+                        <a> {{service.title}} </a> <span ng-if='!!service.connected' class="text-success pull-right fa-lg fa fa-check-circle"></span>
+                    </li>
+                </ul>
+                <div ng-if="!services || !services.length" class="alert alert-warning" >
+                    No Services Available
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+   <button class="btn btn-primary" ng-click="ok()">OK</button>
+</div>

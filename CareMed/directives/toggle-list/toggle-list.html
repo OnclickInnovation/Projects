@@ -1,0 +1,8 @@
+<ul class="list-group">
+  <li class="list-group-item header">
+    <span ng-show="!visible" class="pull-right fa fa-chevron-down pointer" ng-click="toggle()"></span>
+    <span ng-show="visible" class="pull-right fa fa-chevron-up pointer" ng-click="toggle()"></span>
+    {{listTitle}}
+  </li>
+  <div ng-show="visible" ng-transclude></div>
+</ul>

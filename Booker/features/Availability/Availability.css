@@ -1,0 +1,12 @@
+.listitems ul li{
+	 border: 1px solid #ccc;
+    box-shadow: 0 0 3px 0 #ccc;
+    list-style: outside none none;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.listitems ul li a{
+	list-style: none;
+	text-transform: capitalize;
+	cursor: pointer;
+}

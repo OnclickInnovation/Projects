@@ -1,0 +1,12 @@
+<div class="btn-group" dropdown>
+  <button type="button" class="btn btn-secondary dropdown-toggle" aria-expanded="false">
+    {{getSelected()}} <span class="caret"></span>
+  </button>
+  <ul ng-if="items" class="dropdown-menu" role="menu">
+    <li ng-repeat="value in items">
+      <a ng-click="select(value)">
+        {{getOption(value)}}
+      </a>
+      </li>
+  </ul>
+</div>

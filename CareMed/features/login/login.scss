@@ -1,0 +1,17 @@
+#login{
+  padding-top:50px;
+  input:not([type=checkbox]){
+    max-width:none;
+    margin-top:10px;
+  }
+  .forgot-link{
+    margin-top:10px;
+  }
+  .panel-footer{
+    background-color:$brand-secondary;
+    color:#fff;
+    a{
+      color:#fff;
+    }
+  }
+}

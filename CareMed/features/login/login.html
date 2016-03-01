@@ -1,0 +1,36 @@
+<div id="login" class="container">
+
+    <alert ng-if="alert.msg" type="{{alert.type}}">{{alert.msg}}</alert>
+    <div ng-if="showRegistrationMessage">
+        <alert type="success">
+            Registration successful! Please <a href="#/login">login now</a>.
+        </alert>
+    </div>
+
+    <div class="col-md-4 col-md-offset-4">
+      <div class="text-center"><img src="/images/logo_new.png" /></div>
+      <div class="text-center"><h4>Welcome, Please Login</h4></div>
+      <div class="panel panel-default">
+          <div class="panel-body">
+              <form role="form" name="form">
+                  <input required type="email" class="form-control" placeholder="Enter email" ng-model="email">
+                  <input required type="password" class="form-control" placeholder="Password" ng-model="password">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" ng-model="rememberMe"> Remember Me
+                    </label>
+                  </div>
+                  <button type="submit" class="btn btn-primary form-control" ng-click="submit()">Submit</button>
+              </form>
+              <div class="forgot-link">
+                <a href="#/forgot">Forgot Password ?</a>
+              </div>
+          </div>
+          <div class="panel-footer text-center">
+            Don't have account. You can register
+            <a href="#/register"><strong>here</strong></a>
+          </div>
+      </div>
+    </div>
+
+</div>

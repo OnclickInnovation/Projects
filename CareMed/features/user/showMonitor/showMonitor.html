@@ -1,0 +1,71 @@
+<div id="showMonitor">
+     <div class="header">
+         <div class="container">
+           <div class="col-md-8 col-xs-6"><h3>Monitor Code</h3></div>
+           <div class="col-md-4 col-xs-6">
+             <div class="form-group text-right">
+               <button class="btn btn-primary btn-sm" ng-click="SendEmail()"><strong>EMAIL</strong></button>
+               <button class="btn btn-primary btn-sm" ng-click="printInfo()"><strong>PRINT THIS INFORMATION</strong></button>
+             </div>
+           </div>
+         </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-10 col-md-offset-1 code-wrap">
+            <div class="text-center"><strong>Your Code Is Below</strong></div>
+            <div class="text-center"><h1><strong>{{monitor.patientCode}}</strong></h1></div>
+            <div>
+                <div class="col-md-6">
+                    <ol>
+                        <li><strong>Download The App</strong>
+                            <ul>
+                                <li>Go to the app store on your smart phone or tablet</li>
+                                <li>Apple users will use the Apple App Store</li>
+                                <li>Android users will use Google Play</li>
+                                <li>Search for: <b>SynsorMed</b></li>
+                                <li>Download and install the free app</li>
+                            </ul>
+                        </li>
+                        <li><strong>Login</strong>
+                            <ul>
+                                <li>Use the access code above to log into the app</li>
+                            </ul>
+                        </li>
+                        <li><strong>Synsormed Connect</strong>
+                            <ul>
+                                <li>Select a service from service list</li>
+                                <li>Authenticate to external service. You are now conected with Synsormed</li>
+                            </ul>
+                        </li>
+                        <li><strong>Next Reading</strong>
+                            <ul>
+                                <li><b>Important : </b> Note your next reading date.</li>
+                                <li>Make sure to take next reading on or before this date</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-md-6">
+                    <div class="reason-wrap">
+                        <strong>Monitor Description</strong>
+                        <ul>
+                            <li><p>{{monitor.description}}</p></li>
+                        </ul>
+                        <strong>Start Date</strong>
+                        <ul>
+                            <li>{{monitor.createdAt | date:'short'}}</li>
+                        </ul>
+                    </div>
+                    <div class="well">
+                        <strong class="warning">WARNING</strong>
+                        <ul>
+                            <li>In an emergency, DO NOT use the app! Call 911 or go to your nearest Emergency Room!</li>
+                            <li>Your access code will expire the day after your eVisit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

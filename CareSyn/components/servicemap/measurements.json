@@ -1,0 +1,29 @@
+[
+  {
+    "id"   : 1,
+    "name" : "glucose",
+    "unit" : "blood glucose"
+  },
+  {
+    "id"   : 2,
+    "name" : "steps"
+  },
+  {
+    "id"   : 3,
+    "name" : "heartbeat"
+  },
+  {
+    "id"   : 4,
+    "name" : "weight",
+    "unit" : "weight"
+  },
+  {
+    "id"   : 5,
+    "name" : "sleep",
+    "unit" : "sleep"
+  },
+  {
+    "id"   : 6,
+    "name" : "blood pressure"
+  }
+]

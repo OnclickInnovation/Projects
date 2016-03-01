@@ -1,0 +1,42 @@
+<div class='content'>
+	<div class="container heading-style-5">
+	    <h4 style="font-size: 24px;" class="heading-title"><strong>Select Service</strong></h4>
+	    <i class='heading-icon'><img style="width: 82px;height: 82px;margin-top: -22px;margin-left: -10px;" src="images/4.png"></i>
+	    <div class="line bg-black"></div>
+	</div>
+	<select class='form-control' ng-model='selectedCategory'>
+		<option  ng-repeat='category in categories'>{{category}}</option>
+	</select>
+	<br/>
+	<p>You have selected {{filterSelected.length}} services</p>
+	<div class="listitems">
+		<ul ng-if='services.Treatments.length != 0'>
+			<li ng-repeat='service in services | serviceFilter:selectedCategory'>
+				<div ng-click='changed(service)'>
+					<input type='checkbox'  ng-model='service.selected'/>
+					<a>{{service.Name}} - {{service.Category.Name}}</a>
+					<br/>
+					<table>
+						<tbody>
+							<tr>
+								<td class="fontColor text-left">Price</td>
+								<td class="fontColor text-right">{{service.Price.Amount}} {{service.Price.CurrencyCode}}</td>
+							</tr>
+							<tr>
+								<td class="fontColor text-left">Type</td>
+								<td class="fontColor text-right">{{service.SubCategory.Name}}</td>
+							</tr>
+							<tr>
+								<td class="fontColor text-left">Duration</td>
+								<td class="fontColor text-right">{{service.TreatmentDuration}} min</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</li>
+		</ul>
+		<div ng-if='services.Treatments.length == 0' class='alert alert-danger'> 
+			No Treatments Found.
+		</div>
+	</div>
+	<button ng-click='showServices()' class="login-button button button-small button-green button-fullscreen full-bottom">Proceed({{filterSelected.length}})</button>

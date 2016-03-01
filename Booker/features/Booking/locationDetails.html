@@ -1,0 +1,74 @@
+<div class="modal-header text-center">
+    <h3 class="modal-title">{{location.BusinessName}}</h3>
+</div>
+<style>
+	h6
+	{
+		font-size: 12px;
+	    /* padding: 5px; */
+	    width: 170px;
+	    overflow-x: scroll;
+	}
+</style>
+<div class="modal-body">
+	<table>
+		<tbody>
+			<tr>
+				<td class="text-left"><h4>Business Name</h4></td>
+				<td class="text-right"><h6>{{location.BusinessName}}</h6></td>
+			</tr>
+			<tr>
+				<td class="text-left"><h4>Business Type</h4></td>
+				<td class="text-right"><h6>{{location.BusinessType.Name}}</h6></td>
+			</tr>
+			<tr>
+				<td class="text-left"><h4>Children Support</h4></td>
+				<td class="text-right"><h6>
+					<i ng-if='location.SupportsChildren' class='fa fa-2x fa-check-circle-o text-success'></i>
+					<i ng-if='!location.SupportsChildren' class='fa fa-2x fa-times-circle-o text-danger'></i></h6>
+				</td>
+			</tr>
+			<tr>
+				<td class="text-left"><h4>Distribution Partner</h4></td>
+				<td class="text-right"><h6><i ng-if='location.IsDistributionPartner' class='fa fa-2x fa-check-circle-o text-success'></i>
+					<i ng-if='!location.IsDistributionPartner' class='fa fa-2x fa-times-circle-o text-danger'></i></h6>
+				</td>
+			</tr>
+			<tr>
+				<td class="text-left"><h4>Street</h4></td>
+				<td class="text-right"><h6>{{location.Address.Street1}}</h6></td>
+			</tr>
+			<tr>
+				<td class="text-left"><h4>City</h4></td>
+				<td class="text-right"><h6>{{location.Address.City}}</h6></td>
+			</tr>
+			<tr>
+				<td class="text-left"><h4>State</h4></td>
+				<td class="text-right"><h6>{{location.Address.State}}</h6></td>
+			</tr>
+			<tr>
+				<td class="text-left"><h4>Country</h4></td>
+				<td class="text-right"><h6>{{location.Address.Country.Name}}</h6></td>
+			</tr>
+			<tr>
+				<td class="text-left"><h4>Zip</h4></td>
+				<td class="text-right"><h6>{{location.Address.Zip}}</h6></td>
+			</tr>
+			<tr>
+				<td class="text-left"><h4>Phone</h4></td>
+				<td class="text-right"><h6>{{location.Phone}}</h6></td>
+			</tr>
+			<tr ng-if=location.EmailAddress>
+				<td class="text-left"><h4>Email</h4></td>
+				<td class="text-right"><h6>{{location.EmailAddress}}</h6></td>
+			</tr>
+			<tr ng-if=location.WebSite>
+				<td class="text-left"><h4>Website</h4></td>
+				<td class="text-right"><h6>{{location.WebSite}}</h6></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="close()">Close</button>
+</div>

@@ -1,0 +1,23 @@
+<div class='content'>
+	<div class="container heading-style-5">
+	    <h4 style="font-size: 24px;" class="heading-title"><strong>Select Location</strong></h4>
+	    <i class="fa fa-check-square-o heading-icon"></i>
+	    <div class="line bg-black"></div>
+	</div>
+	<div class="listitems">
+		<div ng-if='locations.Results.length != 0'>
+			<ul>
+				<li ng-repeat='result in locations'>
+					<a ng-bind='result.BusinessName' ng-href='#/services/{{result.ID}}'></a>
+					<!-- View More Info Button -->
+					<div style="padding-top: 10px;padding-bottom: 0px;">
+						<i ng-click='openModal(result.ID)' class="fa fa-2x fa-info-circle text-info"></i>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div ng-if='locations.Results.length == 0' class='alert alert-danger'>
+			No Bookings Available
+		</div>	
+	</div>
+</div>

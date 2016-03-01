@@ -1,0 +1,12 @@
+<div class="from-group">
+  <h5>Safe Range <span class="small" ng-if='measurement.unit'>({{measurement.unit}})</span> <help help-text="You will be notified if reading cross this safe range."/></h5>
+  <div ng-if='measurement.name.toLowerCase()!="blood pressure"'>
+    <div range-slider min="slider.floor" max="slider.ceil" model-min="slider.min" model-max="slider.max"></div>
+  </div>
+  <div ng-if='measurement.name.toLowerCase()=="blood pressure"'>
+    Systolic Pressure
+    <div range-slider min="bpslider.floor" max="bpslider.ceil" model-min="bpslider.min" model-max="bpslider.max"></div>
+    Diastolic Pressure
+    <div range-slider min="bpslider.floor" max="bpslider.ceil" model-min="bpslider.min1" model-max="bpslider.max1"></div>
+  </div>
+</div>

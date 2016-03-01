@@ -1,0 +1,28 @@
+<style>
+	label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    margin: 0 auto; 
+}
+input[type='radio'] {
+	position: relative;
+	left: 43%;
+	margin-bottom: 10px;
+}
+</style>
+<div class='content'>
+<div class="container heading-style-5">
+    <h4 style="font-size: 24px;" class="heading-title"><strong>Select Gift Templates</strong></h4>
+    <i class="fa fa-check-square-o heading-icon"></i>
+    <div class="line bg-black"></div>
+</div>
+<div class="listitems">
+		<div ng-click="proceed(location)" class='col-md-3 col-xs-6 text-center giftcertificate' ng-repeat='location in locations'>
+			<label>{{location.Name}}</label>
+			<img src={{location.CoverImageUrl}}>
+			<input type="radio" ng-hide="true" name="optradio" ng-model='templateID' value={{location.ID}}>
+		</div>
+</div>
+</div>

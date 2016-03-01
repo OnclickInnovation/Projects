@@ -1,0 +1,22 @@
+<div id="indicator-list">
+    <div class="col-sm-12 alert alert-warning text-center" ng-if="!monitorMeasurements.length">
+        No Health Indicators Added
+    </div>
+    <accordion close-others="true" >
+        <accordion-group is-open='status.open' ng-repeat='monitorMeasurement in monitorMeasurements' class="col-sm-12 alert alert-info indicator-list" ng-class="{'bordr': status.open}"  ng-if="measurements.length">
+            <accordion-heading>
+                <div class="col-sm-5 col-xs-5 text-left list-text" >
+                    <a ng-click="indicator(monitorMeasurement)">{{ monitorMeasurement.measurementId ? getCurrentMeasurementName(monitorMeasurement.measurementId) : null}}<b ng-if='!monitorMeasurement.id'> *</b></a>
+                </div>
+                <div class="col-sm-5 col-xs-6 float-right text-right list-btn">
+                    <button type="button" title='Delete indicator' class="btn btn-secondary btn-sm" ng-click="removeIndicator($index, monitorMeasurement); $event.stopPropagation()">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                    <button ng-if='!!monitorMeasurement.id' title='Connect service' class="btn btn-secondary btn-sm" ng-click="monitorOauthLink(monitorMeasurement.measurementId, monitorId, monitorMeasurement.id); $event.stopPropagation()" ><i class="fa fa-cloud-upload"></i></button>
+                </div>
+                <div class="clear"></div>
+            </accordion-heading>
+            <health-indicator measurements='measurements' is-missed='monitorMeasurement.isMissed' is-outof-bound='monitorMeasurement.isOutOfBound' select-measurement-id='monitorMeasurement.measurementId' upperbound="monitorMeasurement.upperbound" lowerbound="monitorMeasurement.lowerbound" sensitivity='monitorMeasurement.sensitivity' repeat-interval='monitorMeasurement.repeatInterval' service-name='monitorMeasurement.serviceName' oauth-available='monitorMeasurement.oauthAvailable'></health-indicator>
+        </accordion-group>
+    </accordion>
+</div>

@@ -1,0 +1,36 @@
+#settings {
+  #surveyControlBar {
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin: 20px 0px;
+  }
+  .bootstrap-tagsinput{
+      @extend .form-control;
+      @extend .col-md-6;
+      @extend .col-xs-12;
+      @extend .clearfix;
+      height: auto;
+      min-width: 1000px;
+      @media only screen and (max-device-width: 667px) {
+              min-width: 235px !important;
+      }
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)  {
+            min-width: 300px !important;
+      }
+  }
+
+  .tag
+  {
+      font-size: 13px;
+      background-color: $secondary-color;
+      font-weight: normal;
+      line-height: 1.8;
+  }
+  .header{
+    background-color:#f7f6f6;
+  }
+}
