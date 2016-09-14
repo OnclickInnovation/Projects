@@ -1,0 +1,88 @@
+{
+  "name": "fuse",
+  "version": "1.2.1",
+  "dependencies": {
+    "angular": "1.4.8",
+    "angular-animate": "1.4.8",
+    "angular-aria": "1.4.8",
+    "angular-chart.js": "0.8.8",
+    "angular-chartist.js": "3.3.12",
+    "angular-cookies": "1.4.8",
+    "angular-datatables": "0.5.2",
+    "angular-google-maps": "2.2.1",
+    "angular-material": "1.0.9",
+    "angular-messages": "1.4.8",
+    "angular-nvd3": "1.0.5",
+    "angular-resource": "1.4.8",
+    "angular-sanitize": "1.4.8",
+    "angular-timer": "1.3.3",
+    "angular-translate": "2.8.1",
+    "angular-translate-loader-partial": "2.8.1",
+    "angular-ui-calendar": "1.0.1",
+    "angular-ui-router": "0.2.15",
+    "c3-angular": "0.7.1",
+    "datatables-responsive": "1.0.7",
+    "d3": "^3.5.17",
+    "highlightjs": "8.9.1",
+    "jquery": "^3.1.0",
+    "mobile-detect": "1.3.0",
+    "moment": "2.10.6",
+    "perfect-scrollbar": "0.6.8",
+    "textAngular": "1.5.1",
+    "toastr": "2.1.2",
+    "angular-ui-sortable": "0.13.4",
+    "angular-xeditable": "0.1.9",
+    "Sortable": "1.4.2",
+    "jqueryui-touch-punch": "*",
+    "angular-slick-carousel": "3.1.4",
+    "ngstorage": "^0.3.10",
+    "angular-treasure-overlay-spinner": "^1.1.0",
+    "angular-base64": "~2.0.5",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
+    "angular-locale_tr-tr": "^1.0.3",
+    "angular-file-upload": "^2.3.2",
+    "flow.js": "2",
+    "ng-flow": "~2",
+    "angular-img-http-src": "angular-img-http-src-extended#^0.2.0",
+    "angular-moment-picker": "moment-picker#^0.4.2",
+    "html2canvas": "^0.4.1",
+    "pdfmake": "^0.1.20",
+    "angular-ui-tree": "^2.17.0",
+    "mindmap-deps": "./deps/dependencies.js",
+    "mindmap": "https://raw.githubusercontent.com/mindmup/mapjs/master/dist/mindmup-mapjs.js"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.4.8"
+  },
+  "resolutions": {
+    "angular": "1.4.8",
+    "jquery": ">=1.6.3"
+  },
+  "overrides": {
+    "angular-material": {
+      "main": [
+        "angular-material.js"
+      ]
+    },
+    "perfect-scrollbar": {
+      "main": [
+        "css/perfect-scrollbar.css",
+        "js/perfect-scrollbar.js"
+      ]
+    },
+    "Sortable": {
+      "main": [
+        "Sortable.js",
+        "ng-sortable.js"
+      ]
+    },
+    "moment": {
+      "main": [
+        "min/moment-with-locales.min.js"
+      ]
+    },
+    "font-awesome": {
+      "main": []
+    }
+  }
+}
